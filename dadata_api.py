@@ -2,12 +2,11 @@ import requests
 from database import Database
 
 class DadataAPI:
-    def __init__(self, api_key,base_url="https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address"):
-        self.db = Database()
+    def __init__(self, api_key, base_url="https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address"):
         self.api_key = api_key
         self.base_url = base_url
 
-    def suggest_address(self, query):
+    def suggest_address(self, query, language="ru"):
         headers = {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -16,7 +15,7 @@ class DadataAPI:
 
         params = {
             "query": query,
-            "language": self.db.get_setting("language")
+            "language": language
         }
 
         response = requests.post(self.base_url, json=params, headers=headers)

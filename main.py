@@ -4,7 +4,7 @@ from dadata_api import DadataAPI
 
 class AddressSuggestTool:
     def __init__(self):
-        self.db = Database()
+        self.db = Database(db_path='settings.db')
         self.api_key = self.load_api_key()
         self.dadata_api = DadataAPI(api_key=self.api_key)
 
@@ -28,6 +28,9 @@ class AddressSuggestTool:
             if user_input.lower() == "exit":
                 break
 
+            if user_input.lower() == "debug":
+                print(self.db.get_all())
+
             elif user_input.lower() == "settings":
                 self.update_settings_menu()
                 option = int(input("Выберите опцию для обновления (введите номер): "))
@@ -44,7 +47,7 @@ class AddressSuggestTool:
                     print("Некорректный выбор.")
 
             else:
-                suggestions = self.dadata_api.suggest_address(query=user_input)
+                suggestions = self.dadata_api.suggest_address(query=user_input, language=self.db.get_setting("language"))
                 self.display_suggestions(suggestions)
 
     def display_suggestions(self, suggestions):
