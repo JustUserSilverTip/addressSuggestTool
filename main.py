@@ -23,13 +23,13 @@ class AddressSuggestTool:
 
     def run(self):
         while True:
-            user_input = input("Введите ваш адрес (или введите 'settings' чтобы изменить параметры, или 'exit' чтобы выйти): ")
+            user_input = input("Введите ваш адрес (или введите 'settings' чтобы изменить параметры, или 'exit' чтобы выйти)> ")
 
             if user_input.lower() == "exit":
                 break
 
-            if user_input.lower() == "debug":
-                print(self.db.get_all())
+            # if user_input.lower() == "debug":
+            #     print(self.db.get_all())
 
             elif user_input.lower() == "settings":
                 self.update_settings_menu()

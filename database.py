@@ -21,10 +21,10 @@ class Database:
         self.set_setting_if_not_exist("base_url", "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address")
         self.set_setting_if_not_exist("api_key", "")
 
-    def get_all(self) -> list:
-        with self.conn:
-            c = self.conn.execute("select * from settings")
-            return c.fetchall()
+    # def get_all(self) -> list:
+    #     with self.conn:
+    #         c = self.conn.execute("select * from settings")
+    #         return c.fetchall()
 
     def get_setting(self, key, default=None):
         with self.conn:
