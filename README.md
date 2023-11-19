@@ -11,7 +11,7 @@
 
 1. Клонируйте репозиторий:
    ```
-   git clone https://github.com/ваш-логин/address-suggest-tool.git
+   git clone https://github.com/JustUserSilverTip/addressSuggestTool.git
    ```
 2. Перейдите в каталог проекта
 3. Установите зависимости:
